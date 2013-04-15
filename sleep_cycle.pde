@@ -10,6 +10,7 @@ int currx1, currx2, curry1, curry2;
 void setup() {
 // reading data
   data = loadStrings("/Users/tom/Desktop/sleep cycle data.txt");
+  // data = loadStrings("/Users/charnugagoo/Dropbox/Study/Data Visulization/SleepingCircle/data2.txt");
   count = data.length;
   sleep = new int[count];
   awake = new int[count];
