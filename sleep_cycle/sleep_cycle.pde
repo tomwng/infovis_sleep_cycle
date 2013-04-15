@@ -35,14 +35,19 @@ void draw() {
     float x = map(i * 6, 0, width, xshift, width + xshift);
     float y1 = map(sleep[i], curry1, curry2, 0, height);
     float y2 = map(awake[i], curry1, curry2, 0, height);
-    stroke(120); // gray
+    stroke(120);
     line(x, y1, x, y2);
+    if(i % 30 == 0) {
+      strokeWeight(1);
+      line(x, 0, x, height);
+      strokeWeight(5);
+    };
     stroke(0, 0, 120);
     point(x, y1);
     stroke(0, 0, 120);
     point(x, y2);
   }
-  
+
   smooth();
 }
 
