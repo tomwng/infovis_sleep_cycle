@@ -35,7 +35,6 @@ void setup() {
     log[i].set(data[i]);
   }
   first = int(log[0].begin);
-  //  println(log[1234].day);
   // setup sketch field
   size(1000, 400);
 }
@@ -49,13 +48,13 @@ void drawtimepoint(float time) {
   noStroke();
   // stripe color: red in 0:00 - 12:00, gray in 12:00 - 23:59 
   fill(map(sin(time * TWO_PI), -1, 1, 64, 255), 64, 64);
-  //  ellipse(x, y, max(500 / timespan, 1), 5);
+//  ellipse(x, y, max(500 / timespan, 1), 5);
   float w = max(800 / timespan, 1) / 2; // width of rect
   rect(x - w / 2, y - 4, w, 8);
 }
 
 void drawtimeperiod(float time, float dur) {
-  for (float t = 0; t < dur; t = t + 5.0/1440) {
+  for (float t = 0; t < dur; t = t + 5.0 / 1440) {
     drawtimepoint(time + t);
   }
 }
@@ -63,31 +62,23 @@ void drawtimeperiod(float time, float dur) {
 void draw() {
   noLoop();
   background(240);
-  for (int i = int(first); i < int(log[count - 1].begin) + 1; i++) {
-    drawtimepoint(i);
-  }
   for (int i = 0; i < count; i++) {
-    /*
-    float x1 = map(log[i].begin, first, first + timespan, 0, width);
-     float x2 = map(log[i].begin + log[i].duration, first, first + timespan, 0, width);
-     float y = 200;
-     strokeWeight(1);
-     stroke(128);
-     line(x1, y, x2, y);
-     */
-    //    drawtimepoint(log[i].begin);
-    drawtimeperiod(log[i].begin, log[i].duration);
+    if(log[i].begin + log[i].duration >= first + offset &&
+       log[i].begin <= first + timespan + offset) {
+      drawtimeperiod(log[i].begin, log[i].duration);
+    }
   }
 }
 
-void keyPressed() {
+void keyTyped() {
   switch(key) {
-  case '-': timespan *= 2; break;
-  case '=': timespan /= 2; break;
+  case '_': case '-': timespan *= 2; break;
+  case '+': case '=': timespan /= 2; break;
   case ',': offset -= 1; break;
   case '.': offset += 1; break;
   case '<': offset -= 7; break;
   case '>': offset += 7; break;
+  case 'R': case 'r': offset = 0; break;
   }
   redraw();
 }
