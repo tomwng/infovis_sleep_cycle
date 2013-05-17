@@ -12,8 +12,8 @@ int currx1, currx2, curry1, curry2;
 
 void setup() {
 // reading data
-  data = loadStrings("/Users/tom/Documents/Codes/infovis_sleep_cycle/sleep_cycle/data.txt");
-  // data = loadStrings("/Users/charnugagoo/Dropbox/Study/Data Visulization/SleepingCircle/data2.txt");
+  // data = loadStrings("/Users/tom/Documents/Codes/infovis_sleep_cycle/sleep_cycle/data.txt");
+  data = loadStrings("/Users/charnugagoo/Dropbox/Study/Data Visulization/SleepingCircle/infovis_sleep_cycle/sleep_cycle/data.txt");
   count = data.length;
   sleep = new int[count];
   awake = new int[count];
@@ -23,12 +23,14 @@ void setup() {
     awake[i] = Integer.parseInt(times[1]);
   }
 // moon data
-  data = loadStrings("/Users/tom/Documents/Codes/infovis_sleep_cycle/sleep_cycle/FullMoon.txt");
+  data = loadStrings("/Users/charnugagoo/Dropbox/Study/Data Visulization/SleepingCircle/infovis_sleep_cycle/sleep_cycle/FullMoon.txt");
+  // data = loadStrings("/Users/tom/Documents/Codes/infovis_sleep_cycle/sleep_cycle/FullMoon.txt");
   fullmoon = new int[data.length];
   for(int i=0; i<data.length; i++) {
     fullmoon[i] = Integer.parseInt(data[i]);
   }
-  data = loadStrings("/Users/tom/Documents/Codes/infovis_sleep_cycle/sleep_cycle/NewMoon.txt");
+  // data = loadStrings("/Users/tom/Documents/Codes/infovis_sleep_cycle/sleep_cycle/NewMoon.txt");
+  data = loadStrings("/Users/charnugagoo/Dropbox/Study/Data Visulization/SleepingCircle/infovis_sleep_cycle/sleep_cycle/NewMoon.txt");
   newmoon = new int[data.length];
   for(int i=0; i<data.length; i++) {
     newmoon[i] = Integer.parseInt(data[i]);
