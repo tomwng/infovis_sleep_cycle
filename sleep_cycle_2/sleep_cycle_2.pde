@@ -36,9 +36,6 @@ LogEntry[] newmoon;
 
 TempEntry[] temp;
 
-// ArrayList[] moon;
-
-
 String[] data;
 int count;
 float first;
